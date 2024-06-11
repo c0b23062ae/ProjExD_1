@@ -18,6 +18,9 @@ def main():
             if event.type == pg.QUIT: return
 
         screen.blit(bg_img, [0, 0])
+        koukaton3_rect = koukaton3_img.get_rect()   # こうかとんRectの抽出
+        koukaton3_rect.center = 300, 200            # こうかとんの中心座標を300, 200に設定
+        screen.blit(koukaton3_img, koukaton3_rect)  # こうかとんをRectに従って貼り付ける
         pg.display.update()
         tmr += 1        
         clock.tick(10)
