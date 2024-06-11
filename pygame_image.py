@@ -23,7 +23,7 @@ def main():
         screen.blit(koukaton3_img, koukaton3_rect)  # こうかとんをRectに従って貼り付ける
         pg.display.update()
         tmr += 1        
-        clock.tick(10)
+        clock.tick(200)
 
 
 if __name__ == "__main__":
