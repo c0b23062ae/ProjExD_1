@@ -34,7 +34,9 @@ def main():
         elif key_lst[pg.K_LEFT]:
             koukaton3_rect.move_ip((-1, 0))
         elif key_lst[pg.K_RIGHT]:
-            koukaton3_rect.move_ip((+1, 0))
+            koukaton3_rect.move_ip((+2, 0))
+        koukaton3_rect.move_ip((-1, 0))
+        
         screen.blit(koukaton3_img, koukaton3_rect)  # こうかとんをRectに従って貼り付ける
         pg.display.update()
         tmr += 1        
