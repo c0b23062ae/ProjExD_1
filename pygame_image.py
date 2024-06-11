@@ -13,6 +13,8 @@ def main():
     bg_img2 = pg.transform.flip(bg_img, True, False)
     koukaton3_img = pg.image.load("fig/3.png")
     koukaton3_img = pg.transform.flip(koukaton3_img, True, False)
+    koukaton3_rect = koukaton3_img.get_rect()   # こうかとんRectの抽出
+    koukaton3_rect.center = 300, 200            # こうかとんの中心座標を300, 200に設定
     tmr = 0
     while True:
         for event in pg.event.get():
@@ -23,8 +25,16 @@ def main():
         screen.blit(bg_img2, [-x+1600, 0])
         screen.blit(bg_img, [-x+3200, 0])
         screen.blit(bg_img2, [-x+4800, 0])
-        koukaton3_rect = koukaton3_img.get_rect()   # こうかとんRectの抽出
-        koukaton3_rect.center = 300, 200            # こうかとんの中心座標を300, 200に設定
+
+        key_lst = pg.key.get_pressed()              # 全キーの押下状態を取得
+        if key_lst[pg.K_UP]:
+            koukaton3_rect.move_ip((0, -1))
+        elif key_lst[pg.K_DOWN]:
+            koukaton3_rect.move_ip((0, +1))
+        elif key_lst[pg.K_LEFT]:
+            koukaton3_rect.move_ip((-1, 0))
+        elif key_lst[pg.K_RIGHT]:
+            koukaton3_rect.move_ip((+1, 0))
         screen.blit(koukaton3_img, koukaton3_rect)  # こうかとんをRectに従って貼り付ける
         pg.display.update()
         tmr += 1        
